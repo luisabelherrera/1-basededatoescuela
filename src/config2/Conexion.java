@@ -15,7 +15,7 @@ public class Conexion {
             con1 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/datosacademicos", "root", "");
             con2 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/abelito", "root", "");
             con3 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/calculo", "root", "");
-            con3 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/login", "root", "");
+            
         } catch (Exception e) {
             System.err.println("No se puede conectar. Error: " + e);
         }
@@ -31,7 +31,9 @@ public class Conexion {
     public Connection getConnection3(){
         return  con3;
     }
-      public Connection getConnection4(){
-        return  con4;
-    }
-}
+  
+   
+        }
+    
+   
+
