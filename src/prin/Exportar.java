@@ -13,6 +13,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+// esta clase es para poder exportar en excel
+
+
 public class Exportar {
     public void exportarExcel(JTable t) throws IOException {
   JFileChooser chooser = new JFileChooser();
