@@ -28,9 +28,9 @@ public class EstadoCellRenderer extends DefaultTableCellRenderer {
         // Aplicar el cambio de color si es la columna "Estado" (columna 6 o 7)
         if (column == 8) {
             String estado = (String) value;
-            if ("aprobado".equals(estado)) {
+            if ("Aprobado".equals(estado)) {
                 cellComponent.setBackground(COLOR_APROBADO);
-            } else if ("Desaprobado".equals(estado)) {
+            } else if ("reprobado".equals(estado)) {
                 cellComponent.setBackground(COLOR_DESAPROBADO);
             } else {
                 cellComponent.setBackground(table.getBackground());

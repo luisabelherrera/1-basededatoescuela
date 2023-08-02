@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package prin;
 
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
@@ -33,17 +29,10 @@ import javax.swing.table.TableColumn;
 
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
-
-
 /**
  *
  * @author luisa
  */
-
-
-
-
-
 
 public class notasdelalumno extends javax.swing.JFrame {
     
@@ -104,6 +93,8 @@ centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         btnAgregar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         txtid = new javax.swing.JTextField();
+        btnNuevo = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -178,6 +169,12 @@ centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("promedio");
 
+        txtestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtestadoActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("calcular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +204,20 @@ centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         txtid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidActionPerformed(evt);
+            }
+        });
+
+        btnNuevo.setText("nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btneliminar.setText("eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
             }
         });
 
@@ -253,10 +264,16 @@ centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel4)))
                         .addGap(16, 16, 16)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnmodificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 7, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnmodificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnNuevo))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btneliminar)))
+                        .addGap(0, 1, Short.MAX_VALUE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -271,6 +288,10 @@ centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
                         .addComponent(btnAgregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnmodificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnNuevo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btneliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -346,7 +367,7 @@ centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -416,7 +437,7 @@ float nota3 = Float.parseFloat(txtnota3.getText());
 
 float promedio = (nota1 + nota2 + nota3) / 3.0f;
 if (promedio >= 0 && promedio < 2.96) {
-    txtestado.setText("Desaprobado");
+    txtestado.setText("reprobado");
 } else if (promedio >= 2.96 && promedio <= 5.0) {
     txtestado.setText("Aprobado");
 } else {
@@ -491,6 +512,20 @@ txtpromedio.setText(String.valueOf(promedio));
     private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        eliminar();
+        consultar();
+        Nuevo();
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        Nuevo();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void txtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtestadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -597,9 +632,29 @@ try {
         
         
     }
+    void eliminar(){
+        int fila = tabla.getSelectedRow();
+        try {
+            if(fila<0) {
+                JOptionPane.showMessageDialog(null,"cliente no seleccionado");
+              
+                limipiarTabla();
+            }
+            else {
+                String sql = "delete from promedio where id="+idc;
+                 conet = con3.getConnection3();
+          st = conet.createStatement();
+          st.executeUpdate(sql);
+          JOptionPane.showMessageDialog(null,"alumno eliminado");
+                
+                limipiarTabla();
+            
+            }
+        }catch (Exception e){
+            
+        }
     
-    
-
+    }
    
     void Nuevo(){
         txtid.setText("");
@@ -614,6 +669,8 @@ try {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

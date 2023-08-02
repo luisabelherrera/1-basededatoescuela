@@ -1,30 +1,18 @@
 
 package prin;
-
-
-
-
 import java.io.IOException;
-
-
-
-
-
-
 //diseño y archivo pdf
-
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Rectangle;
-
 import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfNumber;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
-
 import com.itextpdf.text.pdf.PdfWriter;
 
 import config2.Conexion;
+
 
 
 //conexion sql
@@ -46,16 +34,13 @@ import java.io.FileWriter;
 
 import javax.swing.RowFilter;
 
-
-
-
-
 //importaciones necesarias para ejecutar pdf  en 644
 import javax.swing.JFileChooser;
 
+
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumn;
+
 
 
 
@@ -78,6 +63,7 @@ public class datospersonales extends javax.swing.JFrame {
  
 
 
+
 private TableRowSorter trsfiltro;
 
 String filtro;
@@ -85,23 +71,14 @@ String filtro;
     
 private TableRowSorter trsgrados;
 String grados ; 
-    
-
-
-
-
-
+   
 
     public datospersonales() {
-        
-    
 
-        
-        
-        
         initComponents();
         setLocationRelativeTo(null);
         consultar();
+   
        
         //centrar letras
   DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -114,8 +91,10 @@ String grados ;
 tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
             
 
+
         
     }
+ 
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -992,9 +971,7 @@ try {
     
     
     }
-    
-    
-        
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NOMBRE;
     private javax.swing.JButton btnAgregar;
