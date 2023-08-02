@@ -17,16 +17,36 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+
+
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
+//color 
+
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
+
+
+
 /**
  *
  * @author luisa
  */
 
 
-     
+
+
 
 
 public class notasdelalumno extends javax.swing.JFrame {
+    
 Conexion con3= new Conexion();
  Connection conet;
  DefaultTableModel modelo;
@@ -35,6 +55,7 @@ Conexion con3= new Conexion();
   int idc;
 
     public notasdelalumno() {
+        
         initComponents();
         setLocationRelativeTo(null);
         consultar();
@@ -43,11 +64,20 @@ Conexion con3= new Conexion();
          DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         tabla.setDefaultRenderer(Object.class, centerRenderer);
+        
+         // llamar estado
+        EstadoCellRenderer estadoRenderer = new EstadoCellRenderer();
+        tabla.getColumnModel().getColumn(8).setCellRenderer(estadoRenderer);
+        
+        // id 
+             ColumnaAmarillaRenderer columnaAmarillaRenderer = new ColumnaAmarillaRenderer(0);
+tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
+    
+centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 
        
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -305,6 +335,10 @@ Conexion con3= new Conexion();
             }
         });
         jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(2);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(125);
+        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -564,6 +598,8 @@ try {
         
     }
     
+    
+
    
     void Nuevo(){
         txtid.setText("");
