@@ -575,7 +575,7 @@ try {
             
          st = conet.createStatement();
          rs = st.executeQuery(sql);
-         Object []  promedio = new Object [10];
+         Object []  promedio = new Object [9];
          modelo = (DefaultTableModel) tabla.getModel();
          while (rs.next()){
              promedio [0] = rs.getInt("id");
