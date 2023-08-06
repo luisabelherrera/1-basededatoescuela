@@ -134,7 +134,6 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
         pdftabla = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         btnexportar = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -377,8 +376,6 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Gmail_29991.png"))); // NOI18N
-
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("IMPORTAR");
 
@@ -413,8 +410,6 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
                                 .addComponent(txtbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7)
-                        .addGap(18, 18, 18)
                         .addComponent(pdftabla)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,8 +437,7 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pdftabla)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)))
+                            .addComponent(jButton6)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)
@@ -494,7 +488,7 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
 
-        jButton3.setText("volver");
+        jButton3.setText("<");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -985,7 +979,6 @@ try {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;

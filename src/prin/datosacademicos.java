@@ -293,7 +293,7 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
                 .addGap(6, 6, 6))
         );
 
-        jButton3.setText("volver");
+        jButton3.setText("<");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -323,12 +323,13 @@ tabla.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addComponent(jButton3)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)
-                        .addGap(0, 765, Short.MAX_VALUE)))
+                        .addGap(0, 787, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
