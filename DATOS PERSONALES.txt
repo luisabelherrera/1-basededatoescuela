@@ -1,3 +1,7 @@
 abel	herrera	22	arkedis	11	o	15	123	121
 abel	herrea	21	arledis	11	luisabel_26@gmail.com	1002243097	10/12/1999	3218344569
 ABEL	estban	25	IVET	10	1002400	100243098	10/20/1999	32100
+abel	herrera	22	e	11	o	15	123	121
+abel	herrera	22	e	11	o	15	123	121
+abel	herrera	22	e	11	o	15	123	121
+abel	herrea	21	arledis del socorro	11	luisabel_26@gmail.com	1002243097	10/12/1999	3218344569
