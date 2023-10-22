@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package pantalla;
 
 import Conexion.Conexion;
@@ -23,6 +19,8 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import renderizador.AnimacionBorderPanel;
+import renderizador.AnimacionBorderPanel1;
 import renderizador.EstadoCellRenderer;
 import renderizador.Exportar;
 import renderizador.VentanaGrafico;
@@ -37,6 +35,7 @@ public class notasdelalumno extends javax.swing.JPanel {
     private TableRowSorter trsfiltri;
     String filtri;
 
+    
     private EstudianteController estudianteController;
 
     
@@ -69,6 +68,11 @@ public class notasdelalumno extends javax.swing.JPanel {
         // seleccionar la columna id y colocarla en color amarrillo
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         
+      AnimacionBorderPanel1 animatedBorderPanel2 = new AnimacionBorderPanel1(jPanel2, jLabel2);
+AnimacionBorderPanel1 animatedBorderPanel3 = new AnimacionBorderPanel1(jPanel4, jLabel3);
+AnimacionBorderPanel1 animatedBorderPanel4 = new AnimacionBorderPanel1(jPanel5, jLabel4);
+AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, jLabel2);
+
     }
 
     /**
@@ -118,10 +122,10 @@ public class notasdelalumno extends javax.swing.JPanel {
         jButton1buscarnombre = new javax.swing.JButton();
         txtbuscar = new javax.swing.JTextField();
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "base de datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(new javax.swing.border.MatteBorder(null));
 
-        tabla.setBackground(new java.awt.Color(0, 0, 0));
+        tabla.setBackground(new java.awt.Color(51, 0, 51));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -148,19 +152,23 @@ public class notasdelalumno extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "notas del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 255, 255));
         jLabel2.setText("nota 2 30%");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 255, 255));
         jLabel3.setText("nota 3 40%");
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 255, 255));
         jLabel4.setText("Estado ");
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 255, 255));
         jLabel5.setText("promedio");
 
         txtestado.addActionListener(new java.awt.event.ActionListener() {
@@ -169,8 +177,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        botoncalcular.setBackground(new java.awt.Color(0, 0, 0));
-        botoncalcular.setForeground(new java.awt.Color(255, 255, 255));
+        botoncalcular.setBackground(new java.awt.Color(204, 204, 204));
+        botoncalcular.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        botoncalcular.setForeground(new java.awt.Color(0, 0, 0));
         botoncalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-calculadora-48.png"))); // NOI18N
         botoncalcular.setText("calcular");
         botoncalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +188,8 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 255, 255));
         jLabel1.setText("nota 1 30%");
 
         txtid.setEditable(false);
@@ -205,12 +215,12 @@ public class notasdelalumno extends javax.swing.JPanel {
                                 .addComponent(jLabel1))
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(txtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtnota1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtnota1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(txtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel5)
@@ -222,7 +232,7 @@ public class notasdelalumno extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(botoncalcular)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -253,22 +263,27 @@ public class notasdelalumno extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botoncalcular)
                     .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "datos del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setBackground(new java.awt.Color(51, 204, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 255, 255));
         jLabel6.setText("Documento");
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setBackground(new java.awt.Color(51, 204, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 255, 255));
         jLabel7.setText("Nombre");
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setBackground(new java.awt.Color(51, 204, 255));
+        jLabel8.setForeground(new java.awt.Color(0, 255, 255));
         jLabel8.setText("Grado");
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setBackground(new java.awt.Color(51, 204, 255));
+        jLabel9.setForeground(new java.awt.Color(0, 255, 255));
         jLabel9.setText("Asignatura codigo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -316,14 +331,16 @@ public class notasdelalumno extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel5.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel5.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnNuevo.setBackground(new java.awt.Color(0, 0, 0));
-        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo.setBackground(new java.awt.Color(204, 204, 204));
+        btnNuevo.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(0, 102, 102));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-nuevo-48.png"))); // NOI18N
         btnNuevo.setText("nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -332,8 +349,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        btnAgregar.setBackground(new java.awt.Color(0, 0, 0));
-        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgregar.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-add-bookmark-48.png"))); // NOI18N
         btnAgregar.setText("agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -342,8 +360,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        btnmodificar.setBackground(new java.awt.Color(0, 0, 0));
-        btnmodificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnmodificar.setBackground(new java.awt.Color(204, 204, 204));
+        btnmodificar.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        btnmodificar.setForeground(new java.awt.Color(0, 0, 0));
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-editar-archivo-48.png"))); // NOI18N
         btnmodificar.setText("modificar");
         btnmodificar.setToolTipText("");
@@ -353,8 +372,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        btneliminar.setBackground(new java.awt.Color(0, 0, 0));
-        btneliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btneliminar.setBackground(new java.awt.Color(204, 204, 204));
+        btneliminar.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        btneliminar.setForeground(new java.awt.Color(0, 0, 0));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-borrador-48.png"))); // NOI18N
         btneliminar.setText("eliminar");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -363,8 +383,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-business-presenter-53.png"))); // NOI18N
         jButton1.setText("Graficar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +394,8 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        btnexportarexcel.setBackground(new java.awt.Color(0, 0, 0));
+        btnexportarexcel.setBackground(new java.awt.Color(204, 204, 204));
+        btnexportarexcel.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         btnexportarexcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-microsoft-excel-2019-48.png"))); // NOI18N
         btnexportarexcel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -381,8 +403,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        jButton1buscarnombre1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1buscarnombre1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1buscarnombre1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1buscarnombre1.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        jButton1buscarnombre1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1buscarnombre1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-buscar-contactos-48.png"))); // NOI18N
         jButton1buscarnombre1.setText("buscar nombre");
         jButton1buscarnombre1.addActionListener(new java.awt.event.ActionListener() {
@@ -402,8 +425,9 @@ public class notasdelalumno extends javax.swing.JPanel {
             }
         });
 
-        jButton1buscarnombre.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1buscarnombre.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1buscarnombre.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1buscarnombre.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        jButton1buscarnombre.setForeground(new java.awt.Color(0, 0, 0));
         jButton1buscarnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-buscar-contactos-48.png"))); // NOI18N
         jButton1buscarnombre.setText("buscar grado");
         jButton1buscarnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -428,21 +452,6 @@ public class notasdelalumno extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(btnmodificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnNuevo))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnexportarexcel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1buscarnombre1)
@@ -450,7 +459,24 @@ public class notasdelalumno extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregar)
+                    .addComponent(btneliminar))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnexportarexcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,23 +500,20 @@ public class notasdelalumno extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1buscarnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 44, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,7 +531,9 @@ public class notasdelalumno extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

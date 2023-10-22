@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Vista;
+package cx;
 
-import pantalla.datosacademicos;
+import Vista.Login;
 import pantalla.notasdelalumno;
-import pantalla.pe;
+import pantalla.datospersonales;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import desplazable.Desface;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import java.awt.Dimension;
-import pantalla.x1;
+
+import pantalla.datosacademicos;
+import renderizador.AnimacionBorderPanel;
 
 /**
  *
@@ -21,18 +19,19 @@ import pantalla.x1;
  */
 public class Panel extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Panel
-     */
     Desface desplace;
 
     public Panel() {
         initComponents();
+        getContentPane().setBackground(Color.BLACK);
         desplace = new Desface();
-//[1200, 522]
+        //[1200, 522]
         setSize(1240, 680);
         setResizable(false);
         setLocationRelativeTo(null);
+
+        AnimacionBorderPanel animatedBorder = new AnimacionBorderPanel(panelprincipal, jLabel4);
+
     }
 
     /**
@@ -61,11 +60,12 @@ public class Panel extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         panelprincipal = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
 
         jButton7.setText("-");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +92,7 @@ public class Panel extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         MenuPlegable.setBackground(new java.awt.Color(0, 0, 0));
+        MenuPlegable.setForeground(new java.awt.Color(0, 0, 0));
         MenuPlegable.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -178,6 +179,11 @@ public class Panel extends javax.swing.JFrame {
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jLabel7.setIconTextGap(15);
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         MenuPlegable.add(jLabel7);
         jLabel7.setBounds(10, 240, 240, 50);
 
@@ -257,6 +263,24 @@ public class Panel extends javax.swing.JFrame {
         MenuPlegable.add(jLabel17);
         jLabel17.setBounds(260, 250, 30, 40);
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("BOLETIN DE NOTAS");
+        jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 10));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jLabel8.setIconTextGap(15);
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        MenuPlegable.add(jLabel8);
+        jLabel8.setBounds(10, 340, 240, 50);
+        MenuPlegable.add(jLabel18);
+        jLabel18.setBounds(260, 350, 30, 40);
+
         getContentPane().add(MenuPlegable);
         MenuPlegable.setBounds(0, 30, 300, 490);
 
@@ -297,19 +321,14 @@ public class Panel extends javax.swing.JFrame {
         getContentPane().add(panelprincipal);
         panelprincipal.setBounds(300, 30, 990, 850);
 
-        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/francesco.jpg.jpg"))); // NOI18N
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 0, 1440, 30);
-
-        pack();
+        setBounds(0, 0, 718, 498);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         if (MenuPlegable.getX() == 0) {
-            desplace.desplazarIzquierda(MenuPlegable, MenuPlegable.getX(), -250, 5, 2);
+            desplace.desplazarIzquierda(MenuPlegable, MenuPlegable.getX(), -250, 5, 7);
         } else if (MenuPlegable.getX() == -250) {
-            desplace.desplazarDerecha(MenuPlegable, MenuPlegable.getX(), 0, 5, 2);
+            desplace.desplazarDerecha(MenuPlegable, MenuPlegable.getX(), 0, 5, 7);
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -329,7 +348,7 @@ public class Panel extends javax.swing.JFrame {
 
         //[1244, 541]
         //[1359, 622]
-        x1 pl = new x1();
+        datosacademicos pl = new datosacademicos();
         pl.setSize(948, 941);
         pl.setLocation(5, 5);
 
@@ -361,7 +380,7 @@ public class Panel extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 
-        pe pp = new pe();
+        datospersonales pp = new datospersonales();
         pp.setSize(1244, 941);
         pp.setLocation(5, 5);
         panelprincipal.removeAll();
@@ -369,7 +388,7 @@ public class Panel extends javax.swing.JFrame {
         panelprincipal.revalidate();
         panelprincipal.repaint();
 
-
+        AnimacionBorderPanel animatedBorder = new AnimacionBorderPanel(panelprincipal, jLabel4);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
@@ -403,7 +422,7 @@ public class Panel extends javax.swing.JFrame {
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
 
-        pe pp = new pe();
+        datospersonales pp = new datospersonales();
         pp.setSize(1244, 941);
         pp.setLocation(5, 5);
         panelprincipal.removeAll();
@@ -418,7 +437,7 @@ public class Panel extends javax.swing.JFrame {
 
         //[1244, 541]
         //[1359, 622]
-        x1 pl = new x1();
+        datosacademicos pl = new datosacademicos();
         pl.setSize(948, 941);
         pl.setLocation(5, 5);
 
@@ -437,6 +456,15 @@ public class Panel extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+
+
+    }//GEN-LAST:event_jLabel7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -488,6 +516,7 @@ public class Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

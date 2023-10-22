@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package model;
-
-import model.Documento;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 

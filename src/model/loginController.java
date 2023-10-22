@@ -1,18 +1,12 @@
-
 package model;
-
 /**
  *
  * @author abel
  */
 import Vista.Administrador;
-import Vista.Panel;
-
-
+import cx.Panel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-import model.Loginmodel;
 
 public class loginController {
 

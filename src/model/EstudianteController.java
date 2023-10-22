@@ -1,7 +1,7 @@
 package model;
 
 import javax.swing.JTextField;
-import model.CalculoPromedio;
+
 
 public class EstudianteController {
 

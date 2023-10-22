@@ -1,10 +1,5 @@
 package model;
 
-/**
- *
- * @author abel
- *
- */
 public class Libro extends Documento {
 
     private boolean prestado;

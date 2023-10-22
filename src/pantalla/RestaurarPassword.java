@@ -5,8 +5,8 @@
  */
 package pantalla;
 
-
 import Vista.Login;
+
 import java.sql.*;
 import clases.Conexion;
 import java.awt.Color;
