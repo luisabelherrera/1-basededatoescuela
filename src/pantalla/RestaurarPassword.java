@@ -15,7 +15,7 @@ import javax.swing.WindowConstants;
 
 /**
  *
- * @author luisabel
+ * @author abel
  */
 public class RestaurarPassword extends javax.swing.JFrame {
 

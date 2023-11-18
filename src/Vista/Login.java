@@ -1,29 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 /**
  *
  * @author abel
  */
-import pantalla.chatbot;
-import model.loginController;
-
-
+import pantalla.chatbotpreguntaconversation;
+import controller.loginController;
 import com.formdev.flatlaf.intellijthemes.FlatGradiantoMidnightBlueIJTheme;
-
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 import java.io.File;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 import javax.swing.JOptionPane;
 import renderizador.AnimacionBorderPanel;
 
@@ -172,7 +162,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        chatbot k = new chatbot();
+        chatbotpreguntaconversation k = new chatbotpreguntaconversation();
         k.setVisible(true);
         this.dispose();
 

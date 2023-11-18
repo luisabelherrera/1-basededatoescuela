@@ -4,7 +4,6 @@ import Vista.Administrador;
 import Vista.Login;
 
 import clases.Conexion;
-import com.formdev.flatlaf.intellijthemes.FlatGradiantoMidnightBlueIJTheme;
 import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;

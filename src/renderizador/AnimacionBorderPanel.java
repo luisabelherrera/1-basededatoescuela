@@ -14,7 +14,7 @@ public class AnimacionBorderPanel {
     private Timer borderTimer;
     private Color currentBorderColor;
     private int animationSpeed = 500; // Velocidad más rápida (en milisegundos)
-    private Color initialColor = new Color(128, 0, 128); // Cambiado a morado
+    private Color initialColor = new Color(129, 0, 128); // Cambiado a morado
     private Color targetColor = new Color(0, 128, 0); // Cambiado a verde
     private float colorBlend = 0.0f; // Variable para mezclar colores
     private float colorBlendIncrement = 0.03f; // Incremento un poco más grande para una animación más rápida

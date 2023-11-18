@@ -13,33 +13,29 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.EstudianteController;
+import controller.EstudianteController;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import renderizador.AnimacionBorderPanel;
 import renderizador.AnimacionBorderPanel1;
 import renderizador.EstadoCellRenderer;
-import renderizador.Exportar;
+import renderizador.ExportarExcel;
 import renderizador.VentanaGrafico;
 
-
-
 public class notasdelalumno extends javax.swing.JPanel {
-
 
     private TableRowSorter trsfiltro;
     String filtro;
     private TableRowSorter trsfiltri;
     String filtri;
+    private TableRowSorter trsfil;
+    String fill;
 
-    
     private EstudianteController estudianteController;
 
-    
-    Exportar obj;
+    ExportarExcel obj;
     Conexion con2 = new Conexion();
     Connection conet;
     DefaultTableModel modelo;
@@ -48,11 +44,10 @@ public class notasdelalumno extends javax.swing.JPanel {
     int idc;
     JFreeChart grafico;
     DefaultCategoryDataset datos = new DefaultCategoryDataset();
-    
-    
+
     public notasdelalumno() {
         initComponents();
-          consultar();
+        consultar();
 
         estudianteController = new EstudianteController(txtnota1, txtnota2, txtnota3, txtestado, txtpromedio);
 
@@ -63,15 +58,15 @@ public class notasdelalumno extends javax.swing.JPanel {
 
         // llamar estado
         EstadoCellRenderer estadoRenderer = new EstadoCellRenderer();
-        tabla.getColumnModel().getColumn(8).setCellRenderer(estadoRenderer);
+        tabla.getColumnModel().getColumn(9).setCellRenderer(estadoRenderer);
 
         // seleccionar la columna id y colocarla en color amarrillo
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        
-      AnimacionBorderPanel1 animatedBorderPanel2 = new AnimacionBorderPanel1(jPanel2, jLabel2);
-AnimacionBorderPanel1 animatedBorderPanel3 = new AnimacionBorderPanel1(jPanel4, jLabel3);
-AnimacionBorderPanel1 animatedBorderPanel4 = new AnimacionBorderPanel1(jPanel5, jLabel4);
-AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, jLabel2);
+
+        AnimacionBorderPanel1 animatedBorderPanel2 = new AnimacionBorderPanel1(jPanel2, jLabel2);
+        AnimacionBorderPanel1 animatedBorderPanel3 = new AnimacionBorderPanel1(jPanel4, jLabel3);
+        AnimacionBorderPanel1 animatedBorderPanel4 = new AnimacionBorderPanel1(jPanel5, jLabel4);
+        AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, jLabel2);
 
     }
 
@@ -109,7 +104,7 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         txtnombre = new javax.swing.JTextField();
         txtgrado = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtasignaura = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
@@ -121,6 +116,8 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         txtbusca = new javax.swing.JTextField();
         jButton1buscarnombre = new javax.swing.JButton();
         txtbuscar = new javax.swing.JTextField();
+        buscarasi = new javax.swing.JButton();
+        txtasignatura = new javax.swing.JTextField();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(new javax.swing.border.MatteBorder(null));
@@ -131,7 +128,7 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
 
             },
             new String [] {
-                "id", "Documento", "Nombre", "Grado", "Nota 1", "Nota 2", "Nota 3", "Promedio", "Estado"
+                "id", "Documento", "Nombre", "Grado", "asignatura", "Nota 1", "Nota 2", "Nota 3", "Promedio", "Estado"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -263,7 +260,7 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botoncalcular)
                     .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 0, 51));
@@ -293,10 +290,6 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel6)
@@ -309,7 +302,11 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtgrado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtasignaura, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -330,8 +327,8 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(182, Short.MAX_VALUE))
+                    .addComponent(txtasignaura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(51, 0, 51));
@@ -447,20 +444,27 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
             }
         });
 
+        buscarasi.setBackground(new java.awt.Color(204, 204, 204));
+        buscarasi.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        buscarasi.setForeground(new java.awt.Color(0, 0, 0));
+        buscarasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-buscar-contactos-48.png"))); // NOI18N
+        buscarasi.setText("asignatura");
+        buscarasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarasiActionPerformed(evt);
+            }
+        });
+
+        txtasignatura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtasignaturaKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1buscarnombre1)
-                    .addComponent(jButton1buscarnombre))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,6 +481,18 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buscarasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1buscarnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1buscarnombre1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtasignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,9 +514,13 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
                     .addComponent(txtbusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1buscarnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1buscarnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscarasi, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtasignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -552,15 +572,17 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
             String doc = (String) tabla.getValueAt(fila, 1);
             String nom = (String) tabla.getValueAt(fila, 2);
             String gra = (String) tabla.getValueAt(fila, 3);
-            String nota1 = (String) tabla.getValueAt(fila, 4);
-            String nota2 = (String) tabla.getValueAt(fila, 5);
-            String nota3 = (String) tabla.getValueAt(fila, 6);
-            String promedio = (String) tabla.getValueAt(fila, 7);
-            String estado = (String) tabla.getValueAt(fila, 8);
+            String asi = (String) tabla.getValueAt(fila, 4);
+            String nota1 = (String) tabla.getValueAt(fila, 5);
+            String nota2 = (String) tabla.getValueAt(fila, 6);
+            String nota3 = (String) tabla.getValueAt(fila, 7);
+            String promedio = (String) tabla.getValueAt(fila, 8);
+            String estado = (String) tabla.getValueAt(fila, 9);
             txtid.setText("" + idc);
             txtdocumento.setText(doc);
             txtnombre.setText(nom);
             txtgrado.setText(gra);
+            txtasignaura.setText(asi);
             txtnota1.setText(nota1);
             txtnota2.setText(nota2);
             txtnota3.setText(nota3);
@@ -577,6 +599,7 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
     private void botoncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncalcularActionPerformed
 
         estudianteController.realizarCalculo.calcularPromedio();
+
     }//GEN-LAST:event_botoncalcularActionPerformed
 
     private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
@@ -593,38 +616,39 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-
+        Modificar();
         consultar();
         Nuevo();
-        }
+    }
 
-        void Modificar() {
-            String doc = txtdocumento.getText();
-            String nom = txtnombre.getText();
-            String gra = txtgrado.getText();
-            String nota1 = txtnota1.getText();
-            String nota2 = txtnota2.getText();
-            String nota3 = txtnota3.getText();
-            String promedio = txtpromedio.getText();
-            String estado = txtestado.getText();
+    void Modificar() {
+        String doc = txtdocumento.getText();
+        String nom = txtnombre.getText();
+        String gra = txtgrado.getText();
+        String asi = txtasignaura.getText();
+        String nota1 = txtnota1.getText();
+        String nota2 = txtnota2.getText();
+        String nota3 = txtnota3.getText();
+        String promedio = txtpromedio.getText();
+        String estado = txtestado.getText();
 
-            try {
-                if (doc.equals("") || nom.equals("") || gra.equals("") || nota1.equals("") || nota2.equals("") || nota3.equals("") || promedio.equals("") || estado.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Faltan ingresar datos");
-                    limipiarTabla();
-                } else {
-                    String sql = "Update promedio set id='" + idc + "',documento='" + doc + "',nombre="
-                    + "'" + nom + "',grado='" + gra + "'"
-                    + ",nota1='" + nota1 + "',nota2='" + nota2 + "',nota3='" + nota3 + "',promedio='" + promedio + "',estado='" + estado + "' where id=" + idc;
-                    conet = con2.getConnection2();
-                    st = conet.createStatement();
-                    st.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null, "Datos del alumno modificados");
-                    limipiarTabla();
-                }
-            } catch (Exception e) {
-
+        try {
+            if (doc.equals("") || nom.equals("") || gra.equals("") || asi.equals("") || nota1.equals("") || nota2.equals("") || nota3.equals("") || promedio.equals("") || estado.equals("")) {
+                JOptionPane.showMessageDialog(null, "Faltan ingresar datos");
+                limipiarTabla();
+            } else {
+                String sql = "Update promedio set id='" + idc + "',documento='" + doc + "',nombre="
+                        + "'" + nom + "',grado='" + gra + "'"
+                        + ",nota1='" + nota1 + "',nota2='" + nota2 + "',nota3='" + nota3 + "',asignatura='" + asi + "',promedio='" + promedio + "',estado='" + estado + "' where id=" + idc;
+                conet = con2.getConnection2();
+                st = conet.createStatement();
+                st.executeUpdate(sql);
+                JOptionPane.showMessageDialog(null, "Datos del alumno modificados");
+                limipiarTabla();
             }
+        } catch (Exception e) {
+
+        }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -638,10 +662,10 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         try {
             //get Row count obtener recuento de fila
             for (int i = 0; i < tabla.getRowCount(); i++) {
-                datos.addValue(Integer.parseInt(tabla.getValueAt(i, 3).toString()), tabla.getValueAt(i, 3).toString(), tabla.getValueAt(i, 7).toString());
+                datos.addValue(Float.parseFloat(tabla.getValueAt(i, 3).toString()), tabla.getValueAt(i, 3).toString(), tabla.getValueAt(i, 8).toString());
             }
 
-            grafico = ChartFactory.createBarChart3D("GRAFICA DE LOS DATOS DE LOS ALUMNO", "Promedio ", "Curso", datos, PlotOrientation.VERTICAL, true, true, false);
+            grafico = ChartFactory.createBarChart3D("GRAFICA DE LOS DATOS DE LOS ALUMNO", "Promedio", "Curso", datos, PlotOrientation.VERTICAL, true, true, false);
             ChartPanel panel = new ChartPanel(grafico);
 
             VentanaGrafico ventanaGrafico = new VentanaGrafico(panel);
@@ -650,11 +674,13 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnexportarexcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexportarexcelActionPerformed
         try {
-            obj = new Exportar();
+            obj = new ExportarExcel();
             obj.exportarExcel(tabla);
         } catch (IOException ex) {
         }
@@ -702,8 +728,29 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         tabla.setRowSorter(trsfiltro);
     }//GEN-LAST:event_txtbuscarKeyTyped
 
-    
-      public void filtri() {
+    private void buscarasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarasiActionPerformed
+        txtasignatura.addKeyListener(new KeyAdapter() {
+
+            public void keyReleased(final KeyEvent e) {
+                String cadena = txtasignatura.getText();
+                txtasignatura.setText(cadena);
+                repaint();
+                fill();
+            }
+        });
+    }//GEN-LAST:event_buscarasiActionPerformed
+
+    private void txtasignaturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtasignaturaKeyTyped
+        trsfil = new TableRowSorter(tabla.getModel());
+        tabla.setRowSorter(trsfil);
+    }//GEN-LAST:event_txtasignaturaKeyTyped
+
+    public void fill() {
+        fill = txtasignatura.getText();
+        trsfil.setRowFilter(RowFilter.regexFilter(txtasignatura.getText(), 4));
+    }
+
+    public void filtri() {
         filtri = txtbusca.getText();
         trsfiltri.setRowFilter(RowFilter.regexFilter(txtbusca.getText(), 2));
     }
@@ -721,18 +768,19 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
 
             st = conet.createStatement();
             rs = st.executeQuery(sql);
-            Object[] promedio = new Object[9];
+            Object[] promedio = new Object[10];
             modelo = (DefaultTableModel) tabla.getModel();
             while (rs.next()) {
                 promedio[0] = rs.getInt("id");
                 promedio[1] = rs.getString("documento");
                 promedio[2] = rs.getString("nombre");
                 promedio[3] = rs.getString("grado");
-                promedio[4] = rs.getString("nota1");
-                promedio[5] = rs.getString("nota2");
-                promedio[6] = rs.getString("nota3");
-                promedio[7] = rs.getString("promedio");
-                promedio[8] = rs.getString("estado");
+                promedio[4] = rs.getString("asignatura");
+                promedio[5] = rs.getString("nota1");
+                promedio[6] = rs.getString("nota2");
+                promedio[7] = rs.getString("nota3");
+                promedio[8] = rs.getString("promedio");
+                promedio[9] = rs.getString("estado");
 
                 modelo.addRow(promedio);
 
@@ -747,6 +795,7 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         String doc = txtdocumento.getText();
         String nom = txtnombre.getText();
         String gra = txtgrado.getText();
+        String asi = txtasignaura.getText();
         String nota1 = txtnota1.getText();
         String nota2 = txtnota2.getText();
         String nota3 = txtnota3.getText();
@@ -754,11 +803,11 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         String estado = txtestado.getText();
 
         try {
-            if (doc.equals("") || nom.equals("") || gra.equals("") || nota1.equals("") || nota2.equals("") || nota3.equals("") || promedio.equals("") || estado.equals("")) {
+            if (doc.equals("") || nom.equals("") || gra.equals("") || asi.equals("") || nota1.equals("") || nota2.equals("") || nota3.equals("") || promedio.equals("") || estado.equals("")) {
                 JOptionPane.showMessageDialog(null, "Faltan ingresar datos");
                 limipiarTabla();
             } else {
-                String sql = "insert into promedio(documento, nombre, grado, nota1, nota2, nota3, promedio, estado) values ('" + doc + "','" + nom + "','" + gra + "','" + nota1 + "','" + nota2 + "','" + nota3 + "','" + promedio + "','" + estado + "')";
+                String sql = "insert into promedio(documento, nombre, grado,asignatura, nota1, nota2, nota3, promedio, estado) values ('" + doc + "','" + nom + "','" + gra + "','" + asi + "','" + nota1 + "','" + nota2 + "','" + nota3 + "','" + promedio + "','" + estado + "')";
                 conet = con2.getConnection2();
                 st = conet.createStatement();
                 st.executeUpdate(sql);
@@ -806,15 +855,14 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
         txtnombre.setText("");
         txtdocumento.setText("");
         txtgrado.setText("");
+        txtasignaura.setText("");
         txtnota1.setText("");
         txtnota2.setText("");
         txtnota3.setText("");
         txtestado.setText("");
         txtpromedio.setText("");
     }
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoncalcular;
@@ -823,6 +871,7 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnexportarexcel;
     private javax.swing.JButton btnmodificar;
+    private javax.swing.JButton buscarasi;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1buscarnombre;
     private javax.swing.JButton jButton1buscarnombre1;
@@ -841,8 +890,9 @@ AnimacionBorderPanel1 animatedBorderPanel5 = new AnimacionBorderPanel1(jPanel3, 
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtasignatura;
+    private javax.swing.JTextField txtasignaura;
     private javax.swing.JTextField txtbusca;
     private javax.swing.JTextField txtbuscar;
     private javax.swing.JTextField txtdocumento;

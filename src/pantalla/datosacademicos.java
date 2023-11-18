@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package pantalla;
 
 import Conexion.Conexion;
@@ -48,13 +44,12 @@ public class datosacademicos extends javax.swing.JPanel {
         ColumnaAmarillaRenderer columnaAmarillaRenderer = new ColumnaAmarillaRenderer(0);
         tabladedatosacademicos.getColumnModel().getColumn(0).setCellRenderer(columnaAmarillaRenderer);
 
-        mostrarHoraDeColombia();
-        mostrarfechadecolombia();
-       
-                      AnimacionBorderPanel1 animatedBorderPanel2 = new AnimacionBorderPanel1(jPanel1, jLabel18observacion);
-                      AnimacionBorderPanel1 animatedBorderPanel3 = new AnimacionBorderPanel1(jPanel2, jLabel1nombre);
 
-        
+        mostrarfechadecolombia();
+
+        AnimacionBorderPanel1 animatedBorderPanel2 = new AnimacionBorderPanel1(jPanel1, jLabel18observacion);
+        AnimacionBorderPanel1 animatedBorderPanel3 = new AnimacionBorderPanel1(jPanel2, jLabel1nombre);
+
     }
 
     /**
@@ -77,7 +72,6 @@ public class datosacademicos extends javax.swing.JPanel {
         jLabel16colegiodeprocedencia = new javax.swing.JLabel();
         jLabel17condicion = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
-        hora = new javax.swing.JLabel();
         jLabel18observacion = new javax.swing.JLabel();
         jLabel19grado = new javax.swing.JLabel();
         txtingreso = new javax.swing.JTextField();
@@ -112,8 +106,6 @@ public class datosacademicos extends javax.swing.JPanel {
 
         txtid.setEditable(false);
         txtid.setEnabled(false);
-
-        hora.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel18observacion.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18observacion.setText("OBSEVACION ");
@@ -199,12 +191,9 @@ public class datosacademicos extends javax.swing.JPanel {
                         .addComponent(btnNuevo)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtgrado, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtgrado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                     .addComponent(txtcondicion, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtprocedencia, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
@@ -253,18 +242,13 @@ public class datosacademicos extends javax.swing.JPanel {
                         .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnAgregar)
-                                    .addComponent(btneliminar)
-                                    .addComponent(btnNuevo)
-                                    .addComponent(btnmodificar))
-                                .addGap(28, 28, 28))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37))))))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAgregar)
+                            .addComponent(btneliminar)
+                            .addComponent(btnNuevo)
+                            .addComponent(btnmodificar))
+                        .addGap(28, 28, 28))))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -397,16 +381,9 @@ public class datosacademicos extends javax.swing.JPanel {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         Nuevo();
     }//GEN-LAST:event_btnNuevoActionPerformed
-    private void mostrarHoraDeColombia() {
 
-        ZoneId zonaColombia = ZoneId.of("America/Bogota");
-        LocalTime horaColombia = LocalTime.now(zonaColombia);
-        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String horaColombiaFormateada = horaColombia.format(formatoHora);
-        hora.setText("HORA " + horaColombiaFormateada);
-    }
 
-    private void mostrarfechadecolombia() {
+    void mostrarfechadecolombia() {
         ZoneId zonaColombia = ZoneId.of("America/Bogota");
         LocalDate fechaColombia = LocalDate.now(zonaColombia);
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -518,7 +495,6 @@ public class datosacademicos extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnmodificar;
-    private javax.swing.JLabel hora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13fechadeingreso;
     private javax.swing.JLabel jLabel16colegiodeprocedencia;

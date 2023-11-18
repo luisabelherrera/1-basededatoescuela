@@ -7,15 +7,17 @@ import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import desplazable.Desface;
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import java.awt.Dimension;
-
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import pantalla.datosacademicos;
+import pantalla.panelbibliotecanobiblioteca;
 import renderizador.AnimacionBorderPanel;
 
 /**
  *
- * @author master
+ * @author abel
  */
 public class Panel extends javax.swing.JFrame {
 
@@ -27,11 +29,12 @@ public class Panel extends javax.swing.JFrame {
         desplace = new Desface();
         //[1200, 522]
         setSize(1240, 680);
+        // redimencionar la pagina por el usuario
         setResizable(false);
         setLocationRelativeTo(null);
 
         AnimacionBorderPanel animatedBorder = new AnimacionBorderPanel(panelprincipal, jLabel4);
-
+  mostrarHoraDeColombia();
     }
 
     /**
@@ -62,6 +65,8 @@ public class Panel extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -255,6 +260,11 @@ public class Panel extends javax.swing.JFrame {
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/biblioteca.png"))); // NOI18N
         jLabel16.setText("jLabel11");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
         MenuPlegable.add(jLabel16);
         jLabel16.setBounds(260, 210, 30, 40);
 
@@ -266,7 +276,7 @@ public class Panel extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("BOLETIN DE NOTAS");
+        jLabel8.setText("PAGO DE MATRICULA");
         jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 10));
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -277,9 +287,31 @@ public class Panel extends javax.swing.JFrame {
             }
         });
         MenuPlegable.add(jLabel8);
-        jLabel8.setBounds(10, 340, 240, 50);
+        jLabel8.setBounds(10, 390, 240, 50);
         MenuPlegable.add(jLabel18);
         jLabel18.setBounds(260, 350, 30, 40);
+
+        a.setBackground(new java.awt.Color(255, 255, 255));
+        a.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        a.setText("jLabel9");
+        MenuPlegable.add(a);
+        a.setBounds(90, 440, 180, 40);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("BOLETIN DE NOTAS");
+        jLabel9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 10));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jLabel9.setIconTextGap(15);
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        MenuPlegable.add(jLabel9);
+        jLabel9.setBounds(10, 340, 240, 50);
 
         getContentPane().add(MenuPlegable);
         MenuPlegable.setBounds(0, 30, 300, 490);
@@ -326,9 +358,9 @@ public class Panel extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         if (MenuPlegable.getX() == 0) {
-            desplace.desplazarIzquierda(MenuPlegable, MenuPlegable.getX(), -250, 5, 7);
+            desplace.desplazarIzquierda(MenuPlegable, MenuPlegable.getX(), -250, 5, 0);
         } else if (MenuPlegable.getX() == -250) {
-            desplace.desplazarDerecha(MenuPlegable, MenuPlegable.getX(), 0, 5, 7);
+            desplace.desplazarDerecha(MenuPlegable, MenuPlegable.getX(), 0, 5, 0);
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -360,7 +392,15 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    
+        panelbibliotecanobiblioteca pl = new panelbibliotecanobiblioteca();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
 
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
 
     }//GEN-LAST:event_jLabel6MouseClicked
 
@@ -434,7 +474,6 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-
         //[1244, 541]
         //[1359, 622]
         datosacademicos pl = new datosacademicos();
@@ -445,8 +484,6 @@ public class Panel extends javax.swing.JFrame {
         panelprincipal.add(pl, BorderLayout.CENTER);
         panelprincipal.revalidate();
         panelprincipal.repaint();
-
-
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -466,6 +503,33 @@ public class Panel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel7MouseClicked
 
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+  
+       panelbibliotecanobiblioteca pl = new panelbibliotecanobiblioteca();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+        
+        
+    }//GEN-LAST:event_jLabel16MouseClicked
+    
+       void mostrarHoraDeColombia() {
+
+        ZoneId zonaColombia = ZoneId.of("America/Bogota");
+        LocalTime horaColombia = LocalTime.now(zonaColombia);
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String horaColombiaFormateada = horaColombia.format(formatoHora);
+        a.setText("HORA " + horaColombiaFormateada);
+    } 
+    
     /**
      * @param args the command line arguments
      */
@@ -503,6 +567,7 @@ public class Panel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MenuPlegable;
+    private javax.swing.JLabel a;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -524,6 +589,7 @@ public class Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel panelprincipal;
     // End of variables declaration//GEN-END:variables
 }

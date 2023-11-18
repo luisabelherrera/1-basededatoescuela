@@ -23,7 +23,7 @@ public class EstadoCellRenderer extends DefaultTableCellRenderer {
         Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
         // Aplicar el cambio de color si es la columna "Estado" (columna 6 o 7)
-        if (column == 8) {
+        if (column == 9) {
             String estado = (String) value;
             if ("Aprobado".equals(estado)) {
                 cellComponent.setBackground(COLOR_APROBADO);

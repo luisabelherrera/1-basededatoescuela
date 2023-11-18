@@ -11,7 +11,7 @@ import renderizador.AnimacionBorderPanel1;
 
 /**
  *
- * @author luisabel
+ * @author abel
  */
 public class Administrador extends javax.swing.JFrame {
 

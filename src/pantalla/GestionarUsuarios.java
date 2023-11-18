@@ -18,11 +18,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
-import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
+
 
 /**
  *
- * @author luisabel
+ * @author abel
  */
 public class GestionarUsuarios extends javax.swing.JFrame {
 

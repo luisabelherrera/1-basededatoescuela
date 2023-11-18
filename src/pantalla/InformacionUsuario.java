@@ -121,17 +121,17 @@ public class InformacionUsuario extends javax.swing.JFrame {
         jLabel_Nombre4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel_Nombre4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Nombre4.setText("Username:");
-        getContentPane().add(jLabel_Nombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
+        getContentPane().add(jLabel_Nombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
 
         jLabel_Nombre5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel_Nombre5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Nombre5.setText("Estatus:");
-        getContentPane().add(jLabel_Nombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
+        getContentPane().add(jLabel_Nombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
         jLabel_Nombre6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel_Nombre6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Nombre6.setText("Registrado por:");
-        getContentPane().add(jLabel_Nombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
+        getContentPane().add(jLabel_Nombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
         txt_nombre.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,17 +155,17 @@ public class InformacionUsuario extends javax.swing.JFrame {
         txt_username.setForeground(new java.awt.Color(255, 255, 255));
         txt_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 210, -1));
+        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 210, -1));
 
         txt_RegistradoPor.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         txt_RegistradoPor.setForeground(new java.awt.Color(255, 255, 255));
         txt_RegistradoPor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_RegistradoPor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txt_RegistradoPor.setEnabled(false);
-        getContentPane().add(txt_RegistradoPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 210, -1));
+        getContentPane().add(txt_RegistradoPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 210, -1));
 
         cmb_estatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        getContentPane().add(cmb_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
+        getContentPane().add(cmb_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
         cmb_niveles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rector", "profesor", "alumno" }));
         cmb_niveles.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class InformacionUsuario extends javax.swing.JFrame {
                 jButton_ActualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 210, 35));
+        getContentPane().add(jButton_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 210, 35));
 
         jButton_RestaurarPassword.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         jButton_RestaurarPassword.setText("Restaurar Password");
@@ -193,8 +193,8 @@ public class InformacionUsuario extends javax.swing.JFrame {
                 jButton_RestaurarPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_RestaurarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 210, 35));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 450));
+        getContentPane().add(jButton_RestaurarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 210, 35));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

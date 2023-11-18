@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista;
 
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
@@ -117,10 +113,9 @@ public class cargar extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(cargar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-  FlatDarkPurpleIJTheme.setup();
+        FlatDarkPurpleIJTheme.setup();
         cargar p = new cargar();
-        
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -128,26 +123,25 @@ public class cargar extends javax.swing.JFrame {
             }
         });
         Login m = new Login();
-        
-      
-            try{
-            for (int i = 0; i<= 100;  i++)
-        {      
-         Thread.sleep(100);
-         p.jProgressBar1.setValue(i);
-         p.jLabel2.setText(String.valueOf(i)+"%");
-        if(i==100)
-        {
-            p.setVisible(false);
-            p.dispose();
-        }
-        }
-        }catch (InterruptedException ex ){
-                Logger.getLogger(cargar.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            m.setVisible(true);
-            p.dispose();
+
+        try {
+            for (int i = 0; i <= 100; i++) {
+                // funcion se puede traducir como hilo.dormir(100 milisegundos)
+                // antres de contnuar la ejecucion 
+                Thread.sleep(10);
+                p.jProgressBar1.setValue(i);
+                p.jLabel2.setText(String.valueOf(i) + "%");
+                if (i == 100) {
+                    p.setVisible(false);
+                    p.dispose();
+                }
             }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(cargar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        m.setVisible(true);
+        p.dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
