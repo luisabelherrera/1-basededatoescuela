@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package pantalla;
-import Vista.Login;  
 
-import pantalla.panelbibliotecanobiblioteca;
+import pantalla.Panelbibliotecanobiblioteca;
 import controller.RegistroControllerbibliotecanodisponible;
-import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
 
 /**
  *
@@ -108,7 +106,7 @@ public class Eliminarbibliotecanodisponible extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        panelbibliotecanobiblioteca l = new panelbibliotecanobiblioteca();
+        Panelbibliotecanobiblioteca l = new Panelbibliotecanobiblioteca();
         l.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed

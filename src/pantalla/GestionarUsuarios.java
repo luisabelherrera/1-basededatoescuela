@@ -13,12 +13,14 @@ import clases.Conexion;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import renderizador.EstadoCellRenderer;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
+import renderizador.EstadoCellRenderer;
 
 /**
  *
@@ -30,7 +32,6 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     public static String user_update = "";
     DefaultTableModel model = new DefaultTableModel();
 
-    
     public GestionarUsuarios() {
         initComponents();
         user = Login.user;
@@ -110,7 +111,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 255, 0));
         jLabel1.setText("Usuarios registrados");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 

@@ -4,7 +4,7 @@ package Vista;
  *
  * @author abel
  */
-import pantalla.chatbotpreguntaconversation;
+import pantalla.Chatbotpreguntaconversation;
 import controller.loginController;
 import com.formdev.flatlaf.intellijthemes.FlatGradiantoMidnightBlueIJTheme;
 import java.awt.Image;
@@ -17,28 +17,24 @@ import javafx.scene.media.MediaPlayer;
 import javax.swing.JOptionPane;
 import renderizador.AnimacionBorderPanel;
 
-
 public class Login extends javax.swing.JFrame {
 
     public static String user = ""; //Se declara así para enviar datos entre interfaces
     String pass = "";
 
-    /**
-     * Creates new form Login
-     */
+
     public Login() {
         initComponents();
 
         setTitle("PROYECTODEAULA");
         setLocationRelativeTo(null);
-        
 
         ImageIcon wallapper_logo = new ImageIcon("src/imagen/unnamed.png");
         Icon icono_logo = new ImageIcon(wallapper_logo.getImage().getScaledInstance(jLabel3.getWidth(),
                 jLabel3.getHeight(), Image.SCALE_DEFAULT));
         jLabel3.setIcon(icono_logo);
         this.repaint();
-  AnimacionBorderPanel animatedBorderPanel1 = new AnimacionBorderPanel(jPanel1, jLabel2);
+        AnimacionBorderPanel animatedBorderPanel1 = new AnimacionBorderPanel(jPanel1, jLabel3);
 
     }
 
@@ -162,7 +158,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        chatbotpreguntaconversation k = new chatbotpreguntaconversation();
+        Chatbotpreguntaconversation k = new Chatbotpreguntaconversation();
         k.setVisible(true);
         this.dispose();
 
@@ -200,7 +196,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-      FlatGradiantoMidnightBlueIJTheme.setup();
+        FlatGradiantoMidnightBlueIJTheme.setup();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -1,8 +1,8 @@
 package cx;
 
 import Vista.Login;
-import pantalla.notasdelalumno;
-import pantalla.datospersonales;
+import pantalla.Notasdelalumno;
+import pantalla.Datospersonales;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import desplazable.Desface;
 import java.awt.BorderLayout;
@@ -11,8 +11,12 @@ import java.awt.Dimension;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import pantalla.datosacademicos;
-import pantalla.panelbibliotecanobiblioteca;
+import pantalla.Boletinnotas;
+import pantalla.Imagenes;
+import pantalla.Informacion;
+import pantalla.Pagodematricula;
+import pantalla.Datosacademicos;
+import pantalla.Panelbibliotecanobiblioteca;
 import renderizador.AnimacionBorderPanel;
 
 /**
@@ -34,7 +38,7 @@ public class Panel extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         AnimacionBorderPanel animatedBorder = new AnimacionBorderPanel(panelprincipal, jLabel4);
-  mostrarHoraDeColombia();
+        mostrarHoraDeColombia();
     }
 
     /**
@@ -67,6 +71,8 @@ public class Panel extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         a = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -108,6 +114,11 @@ public class Panel extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jLabel1.setIconTextGap(15);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         MenuPlegable.add(jLabel1);
         jLabel1.setBounds(30, 290, 220, 50);
 
@@ -235,6 +246,11 @@ public class Panel extends javax.swing.JFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/imagen.png"))); // NOI18N
         jLabel13.setText("jLabel11");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
         MenuPlegable.add(jLabel13);
         jLabel13.setBounds(260, 300, 30, 40);
 
@@ -268,10 +284,15 @@ public class Panel extends javax.swing.JFrame {
         MenuPlegable.add(jLabel16);
         jLabel16.setBounds(260, 210, 30, 40);
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/acerca-de.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/metodo-de-pago (1).png"))); // NOI18N
         jLabel17.setText("jLabel11");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
         MenuPlegable.add(jLabel17);
-        jLabel17.setBounds(260, 250, 30, 40);
+        jLabel17.setBounds(260, 390, 30, 40);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,6 +309,12 @@ public class Panel extends javax.swing.JFrame {
         });
         MenuPlegable.add(jLabel8);
         jLabel8.setBounds(10, 390, 240, 50);
+
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
         MenuPlegable.add(jLabel18);
         jLabel18.setBounds(260, 350, 30, 40);
 
@@ -295,7 +322,7 @@ public class Panel extends javax.swing.JFrame {
         a.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         a.setText("jLabel9");
         MenuPlegable.add(a);
-        a.setBounds(90, 440, 180, 40);
+        a.setBounds(0, 460, 180, 40);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,6 +339,21 @@ public class Panel extends javax.swing.JFrame {
         });
         MenuPlegable.add(jLabel9);
         jLabel9.setBounds(10, 340, 240, 50);
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/acerca-de.png"))); // NOI18N
+        jLabel19.setText("jLabel11");
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+        MenuPlegable.add(jLabel19);
+        jLabel19.setBounds(260, 250, 30, 40);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/tomar-nota.png"))); // NOI18N
+        jLabel20.setText("jLabel11");
+        MenuPlegable.add(jLabel20);
+        jLabel20.setBounds(260, 350, 30, 40);
 
         getContentPane().add(MenuPlegable);
         MenuPlegable.setBounds(0, 30, 300, 490);
@@ -380,7 +422,7 @@ public class Panel extends javax.swing.JFrame {
 
         //[1244, 541]
         //[1359, 622]
-        datosacademicos pl = new datosacademicos();
+        Datosacademicos pl = new Datosacademicos();
         pl.setSize(948, 941);
         pl.setLocation(5, 5);
 
@@ -392,8 +434,8 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-    
-        panelbibliotecanobiblioteca pl = new panelbibliotecanobiblioteca();
+
+        Panelbibliotecanobiblioteca pl = new Panelbibliotecanobiblioteca();
         pl.setSize(948, 941);
         pl.setLocation(5, 5);
 
@@ -420,7 +462,7 @@ public class Panel extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 
-        datospersonales pp = new datospersonales();
+        Datospersonales pp = new Datospersonales();
         pp.setSize(1244, 941);
         pp.setLocation(5, 5);
         panelprincipal.removeAll();
@@ -435,7 +477,7 @@ public class Panel extends javax.swing.JFrame {
 
         //[1244, 541]
         //[1359, 622]
-        notasdelalumno pl = new notasdelalumno();
+        Notasdelalumno pl = new Notasdelalumno();
         pl.setSize(1244, 641);
         pl.setLocation(5, 5);
 
@@ -448,7 +490,7 @@ public class Panel extends javax.swing.JFrame {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
 
-        notasdelalumno pl = new notasdelalumno();
+        Notasdelalumno pl = new Notasdelalumno();
         pl.setSize(1244, 641);
         pl.setLocation(5, 5);
 
@@ -462,7 +504,7 @@ public class Panel extends javax.swing.JFrame {
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
 
-        datospersonales pp = new datospersonales();
+        Datospersonales pp = new Datospersonales();
         pp.setSize(1244, 941);
         pp.setLocation(5, 5);
         panelprincipal.removeAll();
@@ -476,7 +518,7 @@ public class Panel extends javax.swing.JFrame {
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         //[1244, 541]
         //[1359, 622]
-        datosacademicos pl = new datosacademicos();
+        Datosacademicos pl = new Datosacademicos();
         pl.setSize(948, 941);
         pl.setLocation(5, 5);
 
@@ -495,21 +537,7 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-
-
-    }//GEN-LAST:event_jLabel7MouseClicked
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9MouseClicked
-
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-  
-       panelbibliotecanobiblioteca pl = new panelbibliotecanobiblioteca();
+        Pagodematricula pl = new Pagodematricula();
         pl.setSize(948, 941);
         pl.setLocation(5, 5);
 
@@ -517,19 +545,126 @@ public class Panel extends javax.swing.JFrame {
         panelprincipal.add(pl, BorderLayout.CENTER);
         panelprincipal.revalidate();
         panelprincipal.repaint();
-        
-        
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+
+        Informacion pl = new Informacion();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+
+        Boletinnotas pl = new Boletinnotas();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+
+        Panelbibliotecanobiblioteca pl = new Panelbibliotecanobiblioteca();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+
     }//GEN-LAST:event_jLabel16MouseClicked
-    
-       void mostrarHoraDeColombia() {
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+
+        Informacion pl = new Informacion();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        Imagenes pl = new Imagenes();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+
+        Imagenes pl = new Imagenes();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+
+        Boletinnotas pl = new Boletinnotas();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+
+        Boletinnotas pl = new Boletinnotas();
+        pl.setSize(948, 941);
+        pl.setLocation(5, 5);
+
+        panelprincipal.removeAll();
+        panelprincipal.add(pl, BorderLayout.CENTER);
+        panelprincipal.revalidate();
+        panelprincipal.repaint();
+
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    void mostrarHoraDeColombia() {
 
         ZoneId zonaColombia = ZoneId.of("America/Bogota");
         LocalTime horaColombia = LocalTime.now(zonaColombia);
         DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
         String horaColombiaFormateada = horaColombia.format(formatoHora);
         a.setText("HORA " + horaColombiaFormateada);
-    } 
-    
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -582,7 +717,9 @@ public class Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -94,42 +94,42 @@ public class InformacionUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Titulo.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Titulo.setText("Información del Usuario");
         getContentPane().add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jLabel_Nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre.setText("Nombre:");
         getContentPane().add(jLabel_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel_Nombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre1.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre1.setText("em@il:");
         getContentPane().add(jLabel_Nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel_Nombre2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre2.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre2.setText("Teléfono:");
         getContentPane().add(jLabel_Nombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jLabel_Nombre3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre3.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre3.setText("Permisos de:");
         getContentPane().add(jLabel_Nombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jLabel_Nombre4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre4.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre4.setText("Username:");
         getContentPane().add(jLabel_Nombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
 
         jLabel_Nombre5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre5.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre5.setText("Estatus:");
         getContentPane().add(jLabel_Nombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
         jLabel_Nombre6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel_Nombre6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre6.setForeground(new java.awt.Color(0, 255, 51));
         jLabel_Nombre6.setText("Registrado por:");
         getContentPane().add(jLabel_Nombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
@@ -165,6 +165,11 @@ public class InformacionUsuario extends javax.swing.JFrame {
         getContentPane().add(txt_RegistradoPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 210, -1));
 
         cmb_estatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        cmb_estatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_estatusActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmb_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
         cmb_niveles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rector", "profesor", "alumno" }));
@@ -301,6 +306,10 @@ public class InformacionUsuario extends javax.swing.JFrame {
     private void cmb_nivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_nivelesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_nivelesActionPerformed
+
+    private void cmb_estatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_estatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_estatusActionPerformed
 
     /**
      * @param args the command line arguments

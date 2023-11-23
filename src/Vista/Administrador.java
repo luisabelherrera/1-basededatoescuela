@@ -60,11 +60,11 @@ public class Administrador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton_GestionarUsuarios = new javax.swing.JButton();
         jButton_RegistrarUsuario = new javax.swing.JButton();
-        infoestudiante = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel_NombreUsuario = new javax.swing.JLabel();
+        infoestudiante = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -72,49 +72,56 @@ public class Administrador extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton_GestionarUsuarios.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_GestionarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/sitio-web.png"))); // NOI18N
         jButton_GestionarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_GestionarUsuariosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton_GestionarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, 100));
+        jPanel1.add(jButton_GestionarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 130, 100));
 
+        jButton_RegistrarUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_RegistrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/informacion-personal_1.png"))); // NOI18N
         jButton_RegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_RegistrarUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton_RegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 120, 100));
+        jPanel1.add(jButton_RegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 130, 100));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 255, 0));
+        jLabel2.setText("Gestionar Usuarios");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 255, 0));
+        jLabel1.setText("Registrar Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        jLabel_NombreUsuario.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel_NombreUsuario.setForeground(new java.awt.Color(0, 255, 0));
+        jLabel_NombreUsuario.setText("Ventana Rector ");
+        jPanel1.add(jLabel_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 20));
+
+        infoestudiante.setBackground(new java.awt.Color(0, 0, 0));
+        infoestudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/gestion-de-proyectos.png"))); // NOI18N
         infoestudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infoestudianteActionPerformed(evt);
             }
         });
-        jPanel1.add(infoestudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 120, 90));
+        jPanel1.add(infoestudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 140, 100));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Gestionar Usuarios");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Registrar Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 255, 0));
         jLabel3.setText("GESTION");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 80, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 80, 20));
 
-        jLabel_NombreUsuario.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel_NombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_NombreUsuario.setText("Ventana Rector ");
-        jPanel1.add(jLabel_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 20));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 360));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

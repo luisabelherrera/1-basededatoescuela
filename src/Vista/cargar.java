@@ -1,5 +1,6 @@
 package Vista;
 
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,6 +91,8 @@ public class cargar extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    /*FlatDarkPurpleIJTheme.setup();  */
     public static void main(String args[]) throws InterruptedException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -113,7 +116,7 @@ public class cargar extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(cargar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        FlatDarkPurpleIJTheme.setup();
+FlatDarkPurpleIJTheme.setup();
         cargar p = new cargar();
 
         /* Create and display the form */

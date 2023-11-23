@@ -6,7 +6,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class EstadoCellRenderer extends DefaultTableCellRenderer {
+public class EstadoCellRenderer1 extends DefaultTableCellRenderer {
 
     private static final Color COLOR_APROBADO = Color.GREEN;
     private static final Color COLOR_DESAPROBADO = Color.RED;
@@ -26,25 +26,7 @@ public class EstadoCellRenderer extends DefaultTableCellRenderer {
         cellComponent.setForeground(Color.BLACK);
 
         // Aplicar el cambio de color según la columna y el valor
-        if (column == 9) {
-            String estado = (String) value;
-            if ("Aprobado".equals(estado)) {
-                cellComponent.setBackground(COLOR_APROBADO);
-            } else if ("Reprobado".equals(estado)) {
-                cellComponent.setBackground(COLOR_DESAPROBADO);
-            } else {
-                cellComponent.setBackground(table.getBackground());
-            }
-        } else if (column == 7) {
-            String estado = (String) value;
-            if ("Admitido".equals(estado)) {
-                cellComponent.setBackground(COLOR_ADMITIDO);
-            } else if ("No Admitido".equals(estado)) {
-                cellComponent.setBackground(COLOR_NO_ADMITIDO);
-            } else {
-                cellComponent.setBackground(table.getBackground());
-            }
-        } else if (column == 8) {
+        if (column == 8) {
             String estado = (String) value;
             if ("Activo".equals(estado)) {
                 cellComponent.setBackground(COLOR_ACTIVO);

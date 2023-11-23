@@ -7,7 +7,7 @@ package pantalla;
 
 import Vista.Login;
 
-import pantalla.panelbibliotecanobiblioteca;
+import pantalla.Panelbibliotecanobiblioteca;
 import controller.RegistroControllerbibliotecanodisponible;
 import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
 import model.Documentobibliotecanodisponible;
@@ -105,7 +105,7 @@ public class Listarbibliotecanodisponible extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        panelbibliotecanobiblioteca a = new panelbibliotecanobiblioteca();
+        Panelbibliotecanobiblioteca a = new Panelbibliotecanobiblioteca();
         a.setVisible(true);
         
         this.dispose();
