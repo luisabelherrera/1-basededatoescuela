@@ -1,0 +1,1 @@
+Este proyecto tiene como objetivo diseñar y estilizar una interfaz gráfica de usuario (GUI) utilizando la clase JFrame en Java. Además, utilizaremos MySQL como sistema de gestión de bases de datos para almacenar información relacionada con la gestión educativa.
