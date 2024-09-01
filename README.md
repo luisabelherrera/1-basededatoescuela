@@ -1,6 +1,8 @@
 Este proyecto tiene como objetivo diseñar y estilizar una interfaz gráfica de usuario (GUI) utilizando la clase JFrame en Java. Además, utilizaremos MySQL como sistema de gestión de bases de datos para almacenar información relacionada con la gestión educativa.
 
+TECNOLOGIA XAMP 
 
+JAVA 
 
 login 
 ![image](https://github.com/user-attachments/assets/eec08fc9-18f9-4355-a980-7ccc31c6c5f1)
