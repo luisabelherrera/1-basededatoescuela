@@ -15,8 +15,13 @@ Panel Principal
 
 
 Ventanas
-![image](https://github.com/user-attachments/assets/67cb05b5-1fda-4c0c-9837-580b07fdb4ce)
 
-![image](https://github.com/user-attachments/assets/6c8edc06-ddf0-4c17-9b58-c1f6c7c88ec3)
+![image](https://github.com/user-attachments/assets/f56b8ac6-6283-4ec2-a884-e40dbcfbf6fb)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/ca84e63e-067a-432f-8760-171fb09db633)
+
+![image](https://github.com/user-attachments/assets/87dcb943-8d97-4ffa-82fe-e777973461e4)
+
+![image](https://github.com/user-attachments/assets/bd5f4f38-be0f-4975-8172-9037b213ad86)
+
+
